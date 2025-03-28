@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Indian Political Parties</title>
+    <style>
+        #k{
+            color: antiquewhite;
+        }
+        #hoi{
+            margin-left: 50%;
+            font-size: larger;
+            color: red;
+            text-decoration: none;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 10px;
+            text-align: left;
+        }
+        img {
+            width: 50px;
+            height: auto;
+        }
+        button {
+            padding: 5px 10px;
+            background-color: green;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:disabled {
+            background-color: gray;
+            cursor: not-allowed;
+        }
+    </style>
+    <script>
+        function vote(party) {
+            if (localStorage.getItem('voted')) {
+                alert('You have already voted!');
+                return;
+            }
+            
+            let count = localStorage.getItem(party) ? parseInt(localStorage.getItem(party)) + 1 : 1;
+            localStorage.setItem(party, count);
+            localStorage.setItem('voted', true);
+            
+            alert('You have voted for ' + party + '. Total votes: ' + count);
+            
+            let buttons = document.querySelectorAll('button');
+            buttons.forEach(btn => btn.disabled = true);
+        }
+    </script>
+</head>
+<body>
+    <header class="head" >
+        <h1 id="k">****************************************Welcome to e-voting website**************************************</h1>
+    </header>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            background-color: rgb(46, 3, 5); /* Header color */
+            text-align: center;
+            padding: 0;
+            margin: 0;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            top: 60px; /* Adjust according to h1 height */
+            left: 0;
+            width: 100%;
+            height: calc(100vh - 60px); /* Exclude header height */
+            background-image: url(image/jio.jpg);/* Background color for the rest */
+            background-size: cover;
+            z-index: -1; /* Keeps it behind content */
+        }
+    </style>
+    <h1 id="ki">MY VOTE</h1>
+<body>
+    <a href="vote.html" id="hoi">HOME</a>
+    <br><br>
+    <h2>List of Political Parties in India</h2>
+    <table>
+        <tr>
+            <th>Party Name</th>
+            <th>Symbol</th>
+            <th>Vote</th>
+        </tr>
+        <tr>
+            <td>Bharatiya Janata Party (BJP)</td>
+            <td><img src="image/bjp.jpg" alt="BJP Symbol"></td>
+            <td><button onclick="vote('BJP')">Vote</button></td>
+        </tr>
+        <tr>
+            <td>Indian National Congress (INC)</td>
+            <td><img src="image/INC_Logo.png" alt="INC Symbol"></td>
+            <td><button onclick="vote('INC')">Vote</button></td>
+        </tr>
+        <tr>
+            <td>Aam Aadmi Party (AAP)</td>
+            <td><img src="image/AAP_Symbol.png" alt="AAP Symbol"></td>
+            <td><button onclick="vote('AAP')">Vote</button></td>
+        </tr>
+        <tr>
+            <td>Bahujan Samaj Party (BSP)</td>
+            <td><img src="image/Elephant_Bahujan_Samaj_Party.svg.png" alt="BSP Symbol"></td>
+            <td><button onclick="vote('BSP')">Vote</button></td>
+        </tr>
+        <tr>
+            <td>Communist Party of India (CPI)</td>
+            <td><img src="image/nn.jpg" alt="CPI Symbol"></td>
+            <td><button onclick="vote('CPI')">Vote</button></td>
+        </tr>
+        <tr>
+            <td>Nationalist Congress Party (NCP)</td>
+            <td><img src="image/Clock_symbol_of_NCP.png" alt="NCP Symbol"></td>
+            <td><button onclick="vote('NCP')">Vote</button></td>
+        </tr>
+    </table>
+</body>
+</html>
