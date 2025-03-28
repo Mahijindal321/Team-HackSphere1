@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="cs.css">
+    <script src="jg.js" type="text/js"></script>
+</head>
+<body>
+    <header class="head" >
+        <h1>****************************************Welcome to e-voting website**************************************</h1>
+    </header>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            background-color: rgb(46, 3, 5); /* Header color */
+            text-align: center;
+            padding: 0;
+            margin: 0;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            top: 60px; /* Adjust according to h1 height */
+            left: 0;
+            width: 100%;
+            height: calc(100vh - 60px); /* Exclude header height */
+            background-image: url(image/talent-screening.jpg);/* Background color for the rest */
+            background-size: cover;
+            z-index: -1; /* Keeps it behind content */
+        }
+    </style>
+    <h1>VERIFICATION</h1>
+</body>
+<body>
+    <script src="age.js"></script>
+    <a href="vote.html" id="hoi">HOME</a>
+    <br><br><br>
+    <body>
+        <div class="container">
+            <h2 id="sys">Voting System - Secure Authentication</h2>
+            <div class="auth-section">
+                <button id="faceAuth">Authenticate with Face</button>
+                <button id="fingerprintAuth">Authenticate with Fingerprint</button>
+            </div>
+            <video id="video" width="300" height="225" autoplay></video>
+            <canvas id="canvas" style="display:none;"></canvas>
+            <p id="status">Waiting for authentication...</p>
+        </div>
+    </body>
+</body>
+</html>
