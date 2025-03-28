@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secure Voting System</title>
+    <link rel="stylesheet" type="text/css" href="cs.css">
+    <script src="jg.js" type="text/js"></script>
+</head>
+<body>
+    <div class="container">
+        <h2>Voting System - Secure Authentication</h2>
+        <div class="auth-section">
+            <button id="faceAuth">Authenticate with Face</button>
+            <button id="fingerprintAuth">Authenticate with Fingerprint</button>
+        </div>
+        <video id="video" width="300" height="225" autoplay></video>
+        <canvas id="canvas" style="display:none;"></canvas>
+        <p id="status">Waiting for authentication...</p>
+    </div>
+</body>
+</html>
+ <!--/*styles.css 
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 50px;
+    background-color: #f4f4f4;
+}
+.container {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    display: inline-block;
+}
+.auth-section button {
+    margin: 10px;
+    padding: 10px;
+    border: none;
+    background: #007bff;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.auth-section button:hover {
+    background: #0056b3;
+}*/
+
+/* script.js */
+document.getElementById('faceAuth').addEventListener('click', async () => {
+    let video = document.getElementById('video');
+    let canvas = document.getElementById('canvas');
+    let context = canvas.getContext('2d');
+    navigator.mediaDevices.getUserMedia({ video: true })
+        .then(stream => {
+            video.srcObject = stream;
+            setTimeout(() => {
+                context.drawImage(video, 0, 0, canvas.width, canvas.height);
+                let imageData = canvas.toDataURL('image/png');
+                video.srcObject.getTracks().forEach(track => track.stop());
+                document.getElementById('status').innerText = 'Face authenticated!';
+            }, 3000);
+        })
+        .catch(err => console.error("Error accessing webcam: ", err));
+});
+
+document.getElementById('fingerprintAuth').addEventListener('click', async () => {
+    if (window.PublicKeyCredential) {
+        try {
+            let credential = await navigator.credentials.create({
+                publicKey: {
+                    challenge: new Uint8Array([1,2,3,4,5,6,7,8,9,0]),
+                    rp: { name: "Voting System" },
+                    user: { id: new Uint8Array(16), name: "User", displayName: "Voter" },
+                    pubKeyCredParams: [{ type: "public-key", alg: -7 }],
+                    timeout: 60000,
+                    authenticatorSelection: { authenticatorAttachment: "platform", requireResidentKey: false, userVerification: "required" }
+                }
+            });
+            document.getElementById('status').innerText = 'Fingerprint authenticated!';
+        } catch (error) {
+            console.error("Fingerprint authentication failed: ", error);
+        }
+    } else {
+        alert("WebAuthn not supported on this browser.");
+    }
+});-->
