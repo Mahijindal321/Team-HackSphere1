@@ -1,0 +1,35 @@
+styles.css 
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 50px;
+    background-color: #f4f4f4;
+}
+.container {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    display: inline-block;
+    margin-left: 50%;
+    width: 500px;
+}
+.auth-section button {
+    margin: 10px;
+    padding: 10px;
+    border: none;
+    background: #007bff;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.auth-section button:hover {
+    background: #0056b3;
+}
+#status{
+    color: black;
+}
+#sys{
+    color: black;
+}
+       
