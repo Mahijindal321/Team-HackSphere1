@@ -1,0 +1,100 @@
+*{
+    padding: 0;
+    margin: 0;
+    color: rgb(239, 230, 230);
+}
+.head{
+    background-color: rgb(46, 3, 5);
+    height: 60px;
+
+}
+.img{
+    background-size: cover;
+}
+.bar{
+    margin-left: 50%;
+    margin-top: 2%;
+    font-size: large;
+    color: rgb(27, 169, 43);
+
+}
+body{
+    background-image: url(image/vote2.jpg);
+    background-size: cover
+
+}
+#home{
+    color: rgb(43, 34, 34);
+    background-color: bisque;
+    font-size: larger;
+    height: 50px;
+    width: 190px;
+    border-radius: 50px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif, 'Times New Roman', Times, serif;
+}
+#home:hover{
+    color: rgb(207, 40, 40);
+    background-color: gray;
+}
+#sign{
+    margin-left: 80%;
+    height:50px ;
+    width: 90px;
+    color: rgb(225, 18, 18);
+    font-size: medium;
+    text-decoration: none;
+}
+.language{
+    margin-left: 20px;
+    font-size: large;
+}
+#ger{
+    background-color: aquamarine;
+}
+#hoi:hover{
+    color: brown;
+}
+#hoi{
+    font-size: larger;
+    margin-left: 50%;
+    text-decoration: none;
+    color: black;
+}
+.form{
+    margin-left: 50%;
+}
+#name{
+    color: black;
+}
+#form{
+    margin-left: 50%;
+    color: rgb(14, 3, 40);
+}
+#gen{
+    color: blue;
+    width: 300px;
+    height: 40px;
+    font-size: medium;
+}
+#same{
+    color: black;
+    width: 300px;
+    height: 40px;
+    font-size: medium;
+}
+#dob{
+    color: black;
+    width: 300px;
+    height: 40px;
+    font-size: medium;
+}
+#sam{
+    color: black;
+    width: 90px;
+    height: 50px;
+   border-color: black;
+    border-radius: 50px;
+}
+#ver{
+    margin-left: 50%;
+}
